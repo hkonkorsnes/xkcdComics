@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            VStack{
+            Image("testComic")
+                .resizable()
+                .frame(maxWidth: 500)
+                .navigationTitle("xkcdComics")
+            }
+        }
     }
 }
 
