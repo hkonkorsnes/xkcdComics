@@ -18,7 +18,7 @@ struct ContentView: View {
                     Image("1")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 500)
+                        
                         .navigationTitle("xkcdComics")
                         .overlay(
                             VStack {
@@ -71,13 +71,20 @@ struct ContentView: View {
                     .font(.largeTitle)
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewDevice("iPhone 13 Pro")
+                .previewInterfaceOrientation(.portrait)
+            ContentView()
+                .previewDevice("iPad mini (6th generation)")
+                .previewInterfaceOrientation(.portrait)
+        }
         
     }
 }
