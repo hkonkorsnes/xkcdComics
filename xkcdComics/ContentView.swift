@@ -15,29 +15,30 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 ZStack{
-                    Image("testComic")
+                    Image("1")
                         .resizable()
-                        .frame(maxWidth: 380)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 500)
                         .navigationTitle("xkcdComics")
-                    
-                    HStack{
-                        Spacer()
-                        VStack{
-                            Button(action: {
-                                showingSheet.toggle()
-                            }) {
-                                Image(systemName: "info.circle")
-                                    .sheet(isPresented: $showingSheet) {
-                                        SheetView()
+                        .overlay(
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        showingSheet.toggle()
+                                    }) {
+                                        Image(systemName: "info.circle")
+                                            .sheet(isPresented: $showingSheet) {
+                                                SheetView()
+                                            }
                                     }
+                                    .font(.title2)
+                                    .padding(10)
+                                }
+                                
+                                Spacer()
                             }
-                            .font(.title2)
-                            .padding(10)
-                            Spacer()
-                            
-                            
-                        }
-                    }
+                        )
                 }
                 HStack{
                     Button(action: {
@@ -77,6 +78,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            
+        
     }
 }
