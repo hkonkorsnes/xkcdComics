@@ -1,44 +1,22 @@
 //
-//  ContentView.swift
+//  ComicView.swift
 //  xkcdComics
 //
-//  Created by Håkon Korsnes on 06/04/2022.
+//  Created by Louise Ellefsen on 07/04/2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    @State private var showingSheet = false
-    
+struct ComicView: View {
     var body: some View {
-        NavigationView{
+        
             VStack{
-                ZStack{
-                    Image("testComic")
-                        .resizable()
-                        .frame(maxWidth: 380)
-                        .navigationTitle("xkcdComics")
-                    
-                    HStack{
-                        Spacer()
-                        VStack{
-                            Button(action: {
-                                showingSheet.toggle()
-                            }) {
-                                Image(systemName: "info.circle")
-                                    .sheet(isPresented: $showingSheet) {
-                                        SheetView()
-                                    }
-                            }
-                            .font(.title2)
-                            .padding(10)
-                            Spacer()
-                            
-                            
-                        }
-                    }
-                }
+                
+                Image("testComic")
+                    .resizable()
+                    .frame(maxWidth: 500)
+                    .navigationTitle("xkcdComics")
+                
                 HStack{
                     Button(action: {
                         print("Previous button tapped!")
@@ -68,15 +46,15 @@ struct ContentView: View {
                     .buttonBorderShape(.capsule)
                     .tint(.green)
                     .font(.largeTitle)
-                }
+                
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ComicView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            
+        ComicView()
+            .preferredColorScheme(.light)
     }
 }
