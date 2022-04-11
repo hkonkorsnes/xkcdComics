@@ -7,123 +7,117 @@
 
 import SwiftUI
 
-struct Response: Codable {
-    var results: [Result]
-}
-
-struct Result: Codable {
-    var num: Int
-    var safe_title: String
-    var img: String
-}
-
 struct ComicView: View {
-    
-    @State private var results = [Result]()
     @State private var showingSheet = false
-    @State var input = ""
+    @State var comic: Comic?
+    @State var newestComicNumber: Int = 1
+    @State var currentComicNumber: Int = 1
     
     var body: some View {
-            VStack{
-                
-                ZStack{
-                    //                    List(results, id: \.num) { item in
-                    //                        VStack(alignment: .leading) {
-                    //                            Text(item.safe_title)
-                    //                                .font(.headline)
-                    //                            Text(item.img)
-                    //                        }
-                    //                    }
-                    //                    .task {
-                    //                        await loadData()
-                    //                    }
-                    AsyncImage(url: URL(string: "https://imgs.xkcd.com/comics/barrel_cropped_(1).jpg")) { phase in
-                        if let image = phase.image {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        } else if phase.error != nil {
-                            Text("There was an error loading the image.")
-                        } else {
-                            ProgressView()
-                        }
-                    }
-                    .frame(width: 400, height: 300)
-                    
-                    
-                    
-                    
-                    
-                    
-                    .navigationTitle("xkcdComics")
-                    .overlay(
-                        
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    showingSheet.toggle()
-                                }) {
-                                    Image(systemName: "info.circle")
-                                        .sheet(isPresented: $showingSheet) {
-                                            SheetView()
-                                        }
-                                }
-                                .font(.title2)
-                                .padding(10)
-                            }
-                            
-                            Spacer()
-                        }
-                    )
+        VStack{
+            HStack {
+                if currentComicNumber == newestComicNumber {
+                    Text("Comic Number: #\(currentComicNumber)")
+                        .font(.headline)
+                } else {
+                    Text("Comic Number: #\(currentComicNumber)")
+                        .font(.headline)
                 }
-                HStack{
-                    Button(action: {
-                        print("Previous button tapped!")
-                    }) {
-                        Image(systemName: "chevron.left")
+                Spacer()
+                
+                Button(action: {
+                    showingSheet.toggle()
+                }) {
+                    Image(systemName: "info.circle")
+                        .sheet(isPresented: $showingSheet) {
+                            SheetView(comic: comic)
+                        }
+                }
+                .frame(width: 44, height: 44)
+                .font(.title2)
+            }
+            .padding(.horizontal)
+            Spacer()
+            
+            ZStack{
+                AsyncImage(url: comic?.img) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } else if phase.error != nil {
+                        Text("There was an error loading the image.")
+                    } else {
+                        ProgressView()
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .tint(.blue)
-                    .font(.largeTitle)
-                    
-                    Button(action: {
-                        print("Favourite button tapped!")
-                    }) {
-                        Image(systemName: "heart")
-                    }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .tint(.red)
-                    .font(.largeTitle)
-                    Button(action: {
-                        print("Next button tapped!")
-                    }) {
-                        Image(systemName: "chevron.right")
-                    }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .tint(.green)
-                    .font(.largeTitle)
                 }
             }
-    }
-    func loadData() async {
-        guard let url = URL(string: "https://xkcd.com/info.0.json")
-        else{
-            print("Invalid URL")
-            return
+            
+            Spacer()
+            
+            HStack{
+                Button(action: {
+                    guard currentComicNumber > 1 else { return }
+                    currentComicNumber -= 1
+                    Task {
+                        do {
+                            self.comic = try await APIManager.shared.getComic(for: currentComicNumber)
+                        } catch {
+                            print("Request failed with error: \(APIError.invalidResponse)")
+                        }
+                    }
+                }) {
+                    Image(systemName: "chevron.left")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
+                .tint(.blue)
+                .font(.largeTitle)
+                .disabled(currentComicNumber == 1)
+                
+                Button(action: {
+                    print("Favourite button tapped!")
+                }) {
+                    Image(systemName: "heart")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
+                .tint(.red)
+                .font(.largeTitle)
+                
+                Button(action: {
+                    guard currentComicNumber < newestComicNumber else { return }
+                    currentComicNumber += 1
+                    Task {
+                        do {
+                            self.comic = try await APIManager.shared.getComic(for: currentComicNumber)
+                        } catch {
+                            print("Request failed with error: \(APIError.invalidResponse)")
+                        }
+                    }
+                }) {
+                    Image(systemName: "chevron.right")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.capsule)
+                .tint(.green)
+                .font(.largeTitle)
+                .disabled(currentComicNumber == newestComicNumber)
+            }
         }
         
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
-                results = decodedResponse.results
+        .navigationTitle("xkcdComics")
+        .onAppear {
+            Task {
+                do {
+                    let newestComic = try await APIManager.shared.getCurrentComic()
+                    self.comic = newestComic
+                    self.newestComicNumber = newestComic.num
+                    self.currentComicNumber = newestComicNumber
+                } catch {
+                    print("Request failed with error: \(APIError.invalidResponse)")
+                }
             }
-        } catch {
-            print("invalid data")
         }
     }
 }
