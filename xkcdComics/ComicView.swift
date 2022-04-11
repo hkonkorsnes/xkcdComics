@@ -15,6 +15,7 @@ struct ComicView: View {
     
     var body: some View {
         VStack{
+            
             HStack {
                 if currentComicNumber == newestComicNumber {
                     Text("Comic Number: #\(currentComicNumber)")
@@ -37,6 +38,7 @@ struct ComicView: View {
                 .font(.title2)
             }
             .padding(.horizontal)
+            
             Spacer()
             
             ZStack{
