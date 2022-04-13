@@ -12,6 +12,7 @@ struct ComicBrowserView: View {
     @State private var comic: Comic?
     @State private var newestComicNumber: Int = 1
     @State private var currentComicNumber: Int = 1
+    @State private var errorMessage: String?
     
     var body: some View {
         VStack{
@@ -41,6 +42,14 @@ struct ComicBrowserView: View {
         .onAppear {
             getLatestComic()
         }
+        .alert("Error", isPresented: .constant(errorMessage != nil)) {
+            Button("OK", role: .cancel) {
+                errorMessage = nil
+            }
+        } message: {
+            Text(errorMessage ?? "Something went wrong")
+        }
+
     }
     
     private func getLatestComic() {
@@ -50,8 +59,12 @@ struct ComicBrowserView: View {
                 self.comic = newestComic
                 self.newestComicNumber = newestComic.num
                 self.currentComicNumber = newestComicNumber
-            } catch {
-                print("Request failed with error: \(APIError.invalidResponse)")
+            } catch(let error) {
+                if let apiError = error as? APIError {
+                    errorMessage = apiError.errorDescription()
+                } else {
+                    errorMessage = error.localizedDescription
+                }
             }
         }
     }

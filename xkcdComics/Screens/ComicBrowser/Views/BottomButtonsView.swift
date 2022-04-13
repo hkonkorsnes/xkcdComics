@@ -17,6 +17,7 @@ struct BottomButtonsView: View {
     @Binding var comic: Comic?
     @Binding var newestComicNumber: Int
     @Binding var currentComicNumber: Int
+    @State private var errorMessage: String?
 
     var body: some View {
         HStack {
@@ -60,14 +61,25 @@ struct BottomButtonsView: View {
             .disabled(currentComicNumber == 1)
         }
         .padding()
+        .alert("Error", isPresented: .constant(errorMessage != nil)) {
+            Button("OK", role: .cancel) {
+                errorMessage = nil
+            }
+        } message: {
+            Text(errorMessage ?? "Something went wrong")
+        }
     }
     
     private func getComic() {
         Task {
             do {
                 self.comic = try await APIManager.shared.getComic(for: currentComicNumber)
-            } catch {
-                print("Request failed with error: \(APIError.invalidResponse)")
+            } catch(let error) {
+                if let apiError = error as? APIError {
+                    errorMessage = apiError.errorDescription()
+                } else {
+                    errorMessage = error.localizedDescription
+                }
             }
         }
     }

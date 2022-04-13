@@ -47,6 +47,7 @@ class APIManager {
             throw APIError.parsingError
         }
         
+
         return comic
     }
     
