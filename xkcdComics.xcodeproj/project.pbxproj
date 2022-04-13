@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22BECD0127FEFDD300E03CC4 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BECD0027FEFDD300E03CC4 /* SheetView.swift */; };
-		4D1C65282800518200087A7D /* FavouriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C65272800518200087A7D /* FavouriteView.swift */; };
-		4D1C652A2800548300087A7D /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C65292800548300087A7D /* ComicView.swift */; };
+		22BECD0127FEFDD300E03CC4 /* ComicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BECD0027FEFDD300E03CC4 /* ComicInfoView.swift */; };
+		4D1C652A2800548300087A7D /* ComicBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C65292800548300087A7D /* ComicBrowserView.swift */; };
 		4D1C652C2804030F00087A7D /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C652B2804030F00087A7D /* Comic.swift */; };
 		4D1C652E2804044D00087A7D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C652D2804044D00087A7D /* APIManager.swift */; };
 		4D3213B927FE3F9A00FEDB11 /* xkcdComicsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3213B827FE3F9A00FEDB11 /* xkcdComicsApp.swift */; };
 		4D3213BB27FE3F9A00FEDB11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3213BA27FE3F9A00FEDB11 /* ContentView.swift */; };
 		4D3213BD27FE3F9B00FEDB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3213BC27FE3F9B00FEDB11 /* Assets.xcassets */; };
 		4D3213C027FE3F9B00FEDB11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3213BF27FE3F9B00FEDB11 /* Preview Assets.xcassets */; };
+		4DA9BBCE28056C3C00FF7323 /* BottomButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9BBCD28056C3C00FF7323 /* BottomButtonsView.swift */; };
+		4DA9BBDB2806E86400FF7323 /* ComicInfoBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9BBDA2806E86400FF7323 /* ComicInfoBar.swift */; };
+		4DA9BBDD2806E94200FF7323 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9BBDC2806E94200FF7323 /* InfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22BECD0027FEFDD300E03CC4 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
-		4D1C65272800518200087A7D /* FavouriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteView.swift; sourceTree = "<group>"; };
-		4D1C65292800548300087A7D /* ComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
+		22BECD0027FEFDD300E03CC4 /* ComicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicInfoView.swift; sourceTree = "<group>"; };
+		4D1C65292800548300087A7D /* ComicBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicBrowserView.swift; sourceTree = "<group>"; };
 		4D1C652B2804030F00087A7D /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		4D1C652D2804044D00087A7D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4D3213B527FE3F9A00FEDB11 /* xkcdComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xkcdComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +30,9 @@
 		4D3213BA27FE3F9A00FEDB11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D3213BC27FE3F9B00FEDB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3213BF27FE3F9B00FEDB11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DA9BBCD28056C3C00FF7323 /* BottomButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonsView.swift; sourceTree = "<group>"; };
+		4DA9BBDA2806E86400FF7323 /* ComicInfoBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicInfoBar.swift; sourceTree = "<group>"; };
+		4DA9BBDC2806E94200FF7323 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +65,11 @@
 		4D3213B727FE3F9A00FEDB11 /* xkcdComics */ = {
 			isa = PBXGroup;
 			children = (
+				4DA9BBD52806E45500FF7323 /* Managers */,
+				4DA9BBD42806E43C00FF7323 /* Model */,
+				4DA9BBD32806E36C00FF7323 /* Screens */,
 				4D3213B827FE3F9A00FEDB11 /* xkcdComicsApp.swift */,
 				4D3213BA27FE3F9A00FEDB11 /* ContentView.swift */,
-				4D1C65292800548300087A7D /* ComicView.swift */,
-				22BECD0027FEFDD300E03CC4 /* SheetView.swift */,
-				4D1C65272800518200087A7D /* FavouriteView.swift */,
-				4D1C652B2804030F00087A7D /* Comic.swift */,
-				4D1C652D2804044D00087A7D /* APIManager.swift */,
 				4D3213BC27FE3F9B00FEDB11 /* Assets.xcassets */,
 				4D3213BE27FE3F9B00FEDB11 /* Preview Content */,
 			);
@@ -80,6 +82,66 @@
 				4D3213BF27FE3F9B00FEDB11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DA9BBD32806E36C00FF7323 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4DA9BBDE2806EA1300FF7323 /* ComicInfo */,
+				4DA9BBD82806E76A00FF7323 /* ComicBrowser */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4DA9BBD42806E43C00FF7323 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D1C652B2804030F00087A7D /* Comic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DA9BBD52806E45500FF7323 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4D1C652D2804044D00087A7D /* APIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4DA9BBD82806E76A00FF7323 /* ComicBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				4D1C65292800548300087A7D /* ComicBrowserView.swift */,
+				4DA9BBDF2806EBA500FF7323 /* Views */,
+			);
+			path = ComicBrowser;
+			sourceTree = "<group>";
+		};
+		4DA9BBDE2806EA1300FF7323 /* ComicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4DA9BBE02806EBB700FF7323 /* Views */,
+				22BECD0027FEFDD300E03CC4 /* ComicInfoView.swift */,
+			);
+			path = ComicInfo;
+			sourceTree = "<group>";
+		};
+		4DA9BBDF2806EBA500FF7323 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DA9BBDA2806E86400FF7323 /* ComicInfoBar.swift */,
+				4DA9BBCD28056C3C00FF7323 /* BottomButtonsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DA9BBE02806EBB700FF7323 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DA9BBDC2806E94200FF7323 /* InfoCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,13 +214,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D1C652A2800548300087A7D /* ComicView.swift in Sources */,
+				4D1C652A2800548300087A7D /* ComicBrowserView.swift in Sources */,
 				4D1C652C2804030F00087A7D /* Comic.swift in Sources */,
 				4D3213BB27FE3F9A00FEDB11 /* ContentView.swift in Sources */,
-				22BECD0127FEFDD300E03CC4 /* SheetView.swift in Sources */,
-				4D1C65282800518200087A7D /* FavouriteView.swift in Sources */,
+				22BECD0127FEFDD300E03CC4 /* ComicInfoView.swift in Sources */,
+				4DA9BBDB2806E86400FF7323 /* ComicInfoBar.swift in Sources */,
+				4DA9BBDD2806E94200FF7323 /* InfoCell.swift in Sources */,
 				4D3213B927FE3F9A00FEDB11 /* xkcdComicsApp.swift in Sources */,
 				4D1C652E2804044D00087A7D /* APIManager.swift in Sources */,
+				4DA9BBCE28056C3C00FF7323 /* BottomButtonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +346,9 @@
 		4D3213C427FE3F9B00FEDB11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xkcdComics/Preview Content\"";
@@ -293,8 +358,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,8 +378,9 @@
 		4D3213C527FE3F9B00FEDB11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"xkcdComics/Preview Content\"";
@@ -322,8 +390,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

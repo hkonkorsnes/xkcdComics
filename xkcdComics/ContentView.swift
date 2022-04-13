@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var favorites = Favorites()
 
     var body: some View {
         NavigationView{
@@ -16,13 +17,13 @@ struct ContentView: View {
                     .tabItem {
                         Label("Comics", systemImage: "newspaper")
                     }
-                FavouriteView()
+                Favorites()
                     .tabItem {
-                        Label("Favourites", systemImage: "heart")
+                        Label("Favorites", systemImage: "heart")
                     }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
-        
+            .environmentObject(favorites)
     }
     
 }
