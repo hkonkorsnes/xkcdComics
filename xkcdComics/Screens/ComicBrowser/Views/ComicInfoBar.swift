@@ -1,5 +1,5 @@
 //
-//  TopComicBar.swift
+//  ComicInfoBar.swift
 //  xkcdComics
 //
 //  Created by Håkon Korsnes on 13/04/2022.
@@ -7,22 +7,18 @@
 
 import SwiftUI
 
+// This view contains the current comic number, and an info button to present more info about the comic.
 struct ComicInfoBar: View {
     
     @State private var showingSheet = false
     @Binding var comic: Comic?
-    @Binding var newestComicNumber: Int
     @Binding var currentComicNumber: Int
     
     var body: some View {
         HStack {
-            if currentComicNumber == newestComicNumber {
-                Text("Comic Number: #\(currentComicNumber)")
-                    .font(.headline)
-            } else {
-                Text("Comic Number: #\(currentComicNumber)")
-                    .font(.headline)
-            }
+            Text("Comic Number: #\(currentComicNumber)")
+                .font(.headline)
+
             Spacer()
             
             Button(action: {
@@ -39,3 +35,11 @@ struct ComicInfoBar: View {
         .padding(.horizontal)
     }
 }
+
+struct ComicInfoBar_Previews: PreviewProvider {
+    static var previews: some View {
+        ComicInfoBar(comic: .constant(nil), currentComicNumber: .constant(1234))
+            .previewLayout(.sizeThatFits)
+    }
+}
+

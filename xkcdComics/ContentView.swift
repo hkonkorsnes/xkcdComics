@@ -8,24 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var favorites = Favorites()
-
     var body: some View {
-        NavigationView{
+        NavigationView {
             TabView{
-                ComicView()
+                ComicBrowserView()
                     .tabItem {
                         Label("Comics", systemImage: "newspaper")
                     }
-                Favorites()
-                    .tabItem {
-                        Label("Favorites", systemImage: "heart")
-                    }
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
-            .environmentObject(favorites)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -38,6 +31,5 @@ struct ContentView_Previews: PreviewProvider {
                 .previewDevice("iPad mini (6th generation)")
                 .previewInterfaceOrientation(.portrait)
         }
-        
     }
 }

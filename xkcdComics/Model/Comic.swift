@@ -7,19 +7,21 @@
 
 import Foundation
 
-//{
-//  "month": "4",
-//  "num": 2604,
-//  "link": "",
-//  "year": "2022",
-//  "news": "",
-//  "safe_title": "Frankenstein Captcha",
-//  "transcript": "",
-//  "alt": "The distinction between a ship and a boat is a line drawn in water.",
-//  "img": "https://imgs.xkcd.com/comics/frankenstein_captcha.png",
-//  "title": "Frankenstein Captcha",
-//  "day": "8"
-//}
+// Example response
+
+// {
+//   "month": "4",
+//   "num": 2604,
+//   "link": "",
+//   "year": "2022",
+//   "news": "",
+//   "safe_title": "Frankenstein Captcha",
+//   "transcript": "",
+//   "alt": "The distinction between a ship and a boat is a line drawn in water.",
+//   "img": "https://imgs.xkcd.com/comics/frankenstein_captcha.png",
+//   "title": "Frankenstein Captcha",
+//   "day": "8"
+// }
 
 struct Comic: Decodable {
     var month: String

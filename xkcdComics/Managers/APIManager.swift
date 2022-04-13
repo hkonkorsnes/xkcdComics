@@ -9,36 +9,29 @@ import Foundation
 
 enum APIError: Error {
     case invalidURL
-    case unknownError(error: Error)
     case invalidResponse
-    case invalidData
     case parsingError
     
     func errorDescription() -> String {
         switch self {
-            
         case .invalidURL:
             return "The URL vas invalid"
-        case .unknownError(error: let error):
-            return "Unknown error occured \(error.localizedDescription)"
         case .invalidResponse:
             return "The response was invalid"
-        case .invalidData:
-            return "Invalid data"
         case .parsingError:
             return "Unable to parse data"
         }
     }
 }
 
+// Manager used to fetch comics from the XKCD comics API
 class APIManager {
     
     static let shared = APIManager()
-
     
-    func getCurrentComic() async throws -> Comic {
+    func getLatestComic() async throws -> Comic {
+        
         guard let url = URL(string: "https://xkcd.com/info.0.json") else {
-            print("Invalid URL")
             throw APIError.invalidURL
         }
         
@@ -50,18 +43,17 @@ class APIManager {
             
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        guard let decodedResponse = try? decoder.decode(Comic.self, from: data) else {
+        guard let comic = try? decoder.decode(Comic.self, from: data) else {
             throw APIError.parsingError
         }
         
-        return decodedResponse
+        return comic
     }
     
     func getComic(for number: Int) async throws -> Comic {        
         let urlString = "https://xkcd.com/\(number)/info.0.json"
         
         guard let url = URL(string: urlString) else {
-            print("Invalid URL")
             throw APIError.invalidURL
         }
         
@@ -73,10 +65,10 @@ class APIManager {
             
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        guard let decodedResponse = try? decoder.decode(Comic.self, from: data) else {
+        guard let comic = try? decoder.decode(Comic.self, from: data) else {
             throw APIError.parsingError
         }
         
-        return decodedResponse
+        return comic
     }
 }
