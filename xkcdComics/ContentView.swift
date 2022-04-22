@@ -15,6 +15,10 @@ struct ContentView: View {
                     .tabItem {
                         Label("Comics", systemImage: "newspaper")
                     }
+                FavoritesView()
+                    .tabItem {
+                        Label("Favorites", systemImage: "heart.fill")
+                    }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
