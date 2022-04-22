@@ -41,6 +41,10 @@ struct ComicInfoView: View {
                 if let day = comic?.day, let month = comic?.month, let year = comic?.year {
                     InfoCell(titleText: "Release date", value: "\(day).\(month).\(year)")
                 }
+                
+                if let comicTranscript = comic?.transcript {
+                    InfoCell(titleText: "Transcript", value: comicTranscript)
+                }
             }
             
             // To push the content up
