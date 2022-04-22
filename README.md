@@ -4,6 +4,8 @@ I wanted to do most of the points in this task but i wasn't able to. I Have made
 
 My Thoughts are that the navigation buttons on the bottom are very reachable and easy to understand. The comics are the main feature of the app and thats why they take up morst of the screen.
 
+The reason i used more time than usual is that i have been doing my bachelors at the same time, Easter vacation and a couple of challenging tasks.
+
 I would like to add that i think this has been a very cool and challenging task where i got to put my knowlege to the test.
 
 Hope you like it.
