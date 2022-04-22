@@ -18,6 +18,7 @@ struct BottomButtonsView: View {
     @Binding var newestComicNumber: Int
     @Binding var currentComicNumber: Int
     @State private var errorMessage: String?
+    @State var isFavorite : Bool = false
 
     var body: some View {
         HStack {
@@ -26,6 +27,8 @@ struct BottomButtonsView: View {
                 guard currentComicNumber < newestComicNumber else { return }
                 currentComicNumber += 1
                 getComic()
+                isFavorite = false
+                
             }) {
                 Image(systemName: "chevron.left")
             }
@@ -37,9 +40,9 @@ struct BottomButtonsView: View {
             
             // Favorite button
             Button(action: {
-                print("Favorite button tapped!")
+                self.isFavorite.toggle()
             }) {
-                Image(systemName: "heart")
+                Image(systemName: self.isFavorite == true ? "heart.fill" : "heart")
             }
             .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)
@@ -51,6 +54,7 @@ struct BottomButtonsView: View {
                 guard currentComicNumber > 1 else { return }
                 currentComicNumber -= 1
                 getComic()
+                isFavorite = false
             }) {
                 Image(systemName: "chevron.right")
             }
